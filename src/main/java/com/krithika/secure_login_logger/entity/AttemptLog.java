@@ -13,11 +13,16 @@ public class AttemptLog {
     private String email;
     private boolean success;
     private Instant timestamp;
+
+    public AttemptLog() {
+    }
+
     public AttemptLog(String email, boolean success, Instant timestamp) {
         this.email = email;
         this.success = success;
         this.timestamp = timestamp;
     }
+
     public Long getId() {
         return id;
     }
@@ -39,10 +44,8 @@ public class AttemptLog {
     public Instant getTimestamp() {
         return timestamp;
     }
+
     public void setTimestamp(Instant timestamp) {
         this.timestamp = timestamp;
     }
-    
-
-    // Constructors, getters, and setters
 }
