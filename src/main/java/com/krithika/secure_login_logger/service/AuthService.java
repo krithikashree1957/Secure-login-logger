@@ -5,16 +5,21 @@ import com.krithika.secure_login_logger.dto.RegisterRequest;
 import com.krithika.secure_login_logger.entity.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.Optional;
+import com.krithika.secure_login_logger.repository.AttemptLogRepository;
+import com.krithika.secure_login_logger.entity.AttemptLog;
+import java.time.Instant;
 
 @Service
 public class AuthService {
+    private final AttemptLogRepository attemptLogRepository;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder) 
+    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, AttemptLogRepository attemptLogRepository) 
     {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.attemptLogRepository = attemptLogRepository;
     }
 
     public UserRepository getUserRepository() {
@@ -31,16 +36,26 @@ public class AuthService {
     }
 
     public String login(String email, String password) {
-        Optional<User> userOptional = userRepository.findByEmail(email);
-        if (userOptional.isEmpty()) {
-            return "Invalid email or password";
+
+        Optional<User> user = userRepository.findByEmail(email);
+
+        boolean success = false;
+
+        if (user.isPresent()) {
+            success = passwordEncoder.matches(password, user.get().getPassword());
         }
 
-        User user = userOptional.get();
-        if (passwordEncoder.matches(password, user.getPassword())) {
+        AttemptLog log = new AttemptLog(
+                email,
+                success,
+                Instant.now());
+
+        attemptLogRepository.save(log);
+
+        if (success) {
             return "Login successful";
-        } else {
-            return "Invalid email or password";
         }
+
+        return "Invalid email or password";
     }
 }
