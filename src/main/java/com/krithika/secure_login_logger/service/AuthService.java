@@ -8,6 +8,7 @@ import java.util.Optional;
 import com.krithika.secure_login_logger.repository.AttemptLogRepository;
 import com.krithika.secure_login_logger.entity.AttemptLog;
 import java.time.Instant;
+import java.util.List;
 
 @Service
 public class AuthService {
@@ -57,5 +58,9 @@ public class AuthService {
         }
 
         return "Invalid email or password";
+    }
+    public List<AttemptLog> getAttempts(String email) 
+    {
+        return attemptLogRepository.findByEmail(email);
     }
 }
