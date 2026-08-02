@@ -4,6 +4,8 @@ import com.krithika.secure_login_logger.service.AuthService;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.krithika.secure_login_logger.dto.RegisterRequest;
 import org.springframework.web.bind.annotation.RequestBody;
+import com.krithika.secure_login_logger.entity.User;
+
 @RestController
 public class AuthController {
     private final AuthService authService;
@@ -17,6 +19,14 @@ public class AuthController {
         authService.register(request);
 
         return "User registered successfully.";
+
+    }
+    @PostMapping("/login")
+    public String login(@RequestBody User user) {
+
+         return authService.login(
+            user.getEmail(),
+            user.getPassword());
 
     }
 }
