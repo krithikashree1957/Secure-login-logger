@@ -262,7 +262,7 @@ docker run -p 8080:8080 secure-login-logger
 
 ---
 
-## 7. Password Stored aa Bcrypt Hash
+## 7. Password Stored as Bcrypt Hash
 
 ![Invalid login attempt response in Postman](images/07-users-after-hashing.png)
 
