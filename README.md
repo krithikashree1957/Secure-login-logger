@@ -10,7 +10,7 @@ This application provides secure user registration and login functionality while
 
 Secure Login Logger demonstrates how authentication systems work behind the scenes.
 
-Instead of storing plain-text passwords, passwords are encrypted using BCrypt before being stored in the database. Every login attempt (successful or failed) is recorded with the user's email and timestamp, making the project useful for learning authentication, logging, and backend security concepts.
+Instead of storing plain-text passwords, passwords are encrypted using BCrypt before being stored in the database. Every login attempt (successful or failed) is recorded with the user's email and [...]
 
 ---
 
@@ -212,79 +212,79 @@ docker run -p 8080:8080 secure-login-logger
 
 ## 1. Creating Database Tables
 
-*(Insert Screenshot 01 here)*
+![H2 Console - Database tables created](images/01-h2-table.png)
 
 ---
 
 ## 2. Register API Request
 
-*(Insert Screenshot 02 here)*
+![Register API request in Postman](images/02-register-postman.png)
 
 ---
 
 ## 3. Registration Successful
 
-*(Insert Screenshot 03 here)*
+![Registration successful - application logs/terminal](images/03-register-terminal.png)
 
 ---
 
 ## 4. H2 Console Login
 
-*(Insert Screenshot 04 here)*
+![Postman - User registration request/response](images/04-postman-userRegistration.png)
 
 ---
 
 ## 5. User Table Before BCrypt Hashing
 
-*(Insert Screenshot 05 here)*
+![User table before BCrypt hashing in H2 Console](images/05-h2-login.png)
 
 ---
 
 ## 6. Password Stored as BCrypt Hash
 
-*(Insert Screenshot 06 here)*
+![Password stored as BCrypt hash in the user table](images/06-users-before-hashing.png)
 
 ---
 
 ## 7. Invalid Login Attempt
 
-*(Insert Screenshot 07 here)*
+![Invalid login attempt response in Postman](images/07-users-after-hashing.png)
 
 ---
 
 ## 8. Attempt Logs in H2
 
-*(Insert Screenshot 08 here)*
+![H2 Console - Invalid login attempt recorded in attempt logs](images/08-invalid-login.png)
 
 ---
 
 ## 9. Attempt Logs using REST API
 
-*(Insert Screenshot 09 here)*
+![Attempt logs retrieved using REST API](images/09-attemptlogs-h2.png)
 
 ---
 
 ## 10. Multiple Login Attempts
 
-*(Insert Screenshot 10 here)*
+![Multiple login attempts shown in Postman](images/10-attemptlogs-postman.png)
 
 ---
 
 ## 11. JUnit Test Results
 
-*(Insert Screenshot 11 here)*
+![JUnit test results](images/11-multiple-attempts.png)
 
 ---
 
 ## 12. Docker Build
 
-*(Insert Screenshot 12 here)*
+![Docker build output and image creation](images/12-multiple-attempts-h2.png)
 
 ---
 
 ## 13. Docker Running Successfully
 
-*(Insert Screenshot 13 here)*
+![Application running inside Docker container](images/13-junit-tests.png)
 
 ---
 
