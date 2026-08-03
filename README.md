@@ -238,43 +238,43 @@ docker run -p 8080:8080 secure-login-logger
 
 ---
 
-## 3. Registration Successful
+## 3. Registration received
 
 ![Registration successful - application logs/terminal](images/03-register-terminal.png)
 
 ---
 
-## 4. H2 Console Login
+## 4. Registration Successful
 
 ![Postman - User registration request/response](images/04-postman-userRegistration.png)
 
 ---
 
-## 5. User Table Before BCrypt Hashing
+## 5. H2 login console
 
 ![User table before BCrypt hashing in H2 Console](images/05-h2-login.png)
 
 ---
 
-## 6. Password Stored as BCrypt Hash
+## 6. Password Stored before hashing
 
 ![Password stored as BCrypt hash in the user table](images/06-users-before-hashing.png)
 
 ---
 
-## 7. Invalid Login Attempt
+## 7. Password Stored aa Bcrypt Hash
 
 ![Invalid login attempt response in Postman](images/07-users-after-hashing.png)
 
 ---
 
-## 8. Attempt Logs in H2
+## 8. Invalid Attempt
 
 ![H2 Console - Invalid login attempt recorded in attempt logs](images/08-invalid-login.png)
 
 ---
 
-## 9. Attempt Logs using REST API
+## 9. Attempt Logs in h2 console
 
 ![Attempt logs retrieved using REST API](images/09-attemptlogs-h2.png)
 
@@ -286,19 +286,13 @@ docker run -p 8080:8080 secure-login-logger
 
 ---
 
-## 11. JUnit Test Results
-
-![JUnit test results](images/11-multiple-attempts.png)
-
----
-
-## 12. Docker Build
+## 11. Attempts Log
 
 ![Docker build output and image creation](images/12-multiple-attempts-h2.png)
 
 ---
 
-## 13. Docker Running Successfully
+## 12. Junit testing  Successfully
 
 ![Application running inside Docker container](images/13-junit-tests.png)
 
