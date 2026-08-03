@@ -12,6 +12,22 @@ Secure Login Logger demonstrates how authentication systems work behind the scen
 
 Instead of storing plain-text passwords, passwords are encrypted using BCrypt before being stored in the database. Every login attempt (successful or failed) is recorded with the user's email and [...]
 
+## Project Workflow
+
+```mermaid
+flowchart TD
+A[Register User] --> B[Hash Password using BCrypt]
+B --> C[Store User in H2 Database]
+C --> D[User Login]
+D --> E{Password Correct?}
+E -->|Yes| F[Login Successful]
+E -->|No| G[Invalid Credentials]
+F --> H[Log Successful Attempt]
+G --> I[Log Failed Attempt]
+H --> J[Retrieve Attempt Logs]
+I --> J
+```
+
 ---
 
 # ✨ Features
