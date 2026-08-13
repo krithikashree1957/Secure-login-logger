@@ -335,11 +335,7 @@ Each issue helped improve understanding of Spring Boot architecture and backend 
 
 **Krithika Shree K**
 
-Integrated M.Tech Software Engineering
-
-VIT University
-
 GitHub:
-Author: krithikashree1957
+Author: @krithikashree1957
 
 This project was developed as a learning project to understand backend development, secure authentication, REST APIs, Spring Boot architecture, Docker containerization, and database interaction.
